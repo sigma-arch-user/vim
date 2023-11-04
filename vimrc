@@ -3,23 +3,48 @@ set nocompatible
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'https://github.com/morhetz/gruvbox'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 syntax on
 
-colorscheme gruvbox
+let g:airline_powerline_fonts = 1
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+let g:airline#extensions#tabline#formatter = 'default'
+
+set noshowmode
+
+"let g:airline_theme = "tokyonight"
+
+set termguicolors
+
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
+
+set background=dark
 
 set number
 set relativenumber
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=3
+set tabstop=3
 
 set noerrorbells
 
 nnoremap x "_x
 
-nnoremap <F5> :w <CR> :!clear && g++ -std=c++17 -fsanitize=address -Wall -Wextra -O2 -DLOCAL -o %< % && time ./%< <CR>
-inoremap <F5> <ESC> :w <CR> :!clear && g++ -std=c++17 -fsanitize=address -Wall -Wextra -O2 -DLOCAL -o %< % && time ./%< <CR>
+nnoremap <F9> :w <CR> :!clear && clang++ -fsanitize=address -std=c++17 -Wall -Wextra -Wno-unused-const-variable -Wno-unknown-pragmas -O2 -DLOCAL -o %< % && time ./%< <CR>
+nnoremap <F10> :w <CR> :!clear && g++ -std=c++17 -Wall -Wextra -Wno-unused-const-variable -O2 -DLOCAL -o %< % && time ./%< <CR>
 
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -35,4 +60,3 @@ function! Toggle_transparent()
     endif
 endfunction
 nnoremap <C-t> : call Toggle_transparent()<CR>
-
