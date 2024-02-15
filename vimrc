@@ -38,12 +38,13 @@ set number
 set relativenumber
 set shiftwidth=3
 set tabstop=3
+set expandtab
 
 set noerrorbells
 
 nnoremap x "_x
 
-nnoremap <F9> :w <CR> :!clear && clang++ -fsanitize=address -std=c++17 -Wall -Wextra -Wno-unused-const-variable -Wno-unknown-pragmas -O2 -DLOCAL -o %< % && time ./%< <CR>
+nnoremap <F9> :w <CR> :!clear && g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wno-unused-const-variable -Wno-unknown-pragmas -O2 -DLOCAL -o %< % && time ./%< <CR>
 nnoremap <F10> :w <CR> :!clear && g++ -std=c++17 -Wall -Wextra -Wno-unused-const-variable -O2 -DLOCAL -o %< % && time ./%< <CR>
 
 let &t_SI = "\e[6 q"
