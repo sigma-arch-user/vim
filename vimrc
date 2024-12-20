@@ -30,7 +30,7 @@ set termguicolors
 let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
 
-colorscheme tokyonight
+colorscheme gruvbox
 
 set background=dark
 
@@ -39,13 +39,13 @@ set relativenumber
 set shiftwidth=3
 set tabstop=3
 set expandtab
+set mouse=a
 
 set noerrorbells
 
 nnoremap x "_x
 
-nnoremap <F9> :w <CR> :!clear && g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wno-unused-const-variable -Wno-unknown-pragmas -O2 -DLOCAL -o %< % && time ./%< <CR>
-nnoremap <F10> :w <CR> :!clear && g++ -std=c++17 -Wall -Wextra -Wno-unused-const-variable -O2 -DLOCAL -o %< % && time ./%< <CR>
+nnoremap <F9> :w <CR> :!clear && g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wno-unused-const-variable -O2 -DLOCAL -o %< % && time ./%< <CR>
 
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -60,4 +60,4 @@ function! Toggle_transparent()
         let t:is_transparent = 0
     endif
 endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
+call Toggle_transparent()
