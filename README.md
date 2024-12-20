@@ -1,1 +1,1 @@
-# My vimrc + a setup script
+# My vimrc
