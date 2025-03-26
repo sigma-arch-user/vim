@@ -6,13 +6,16 @@ Plug 'https://github.com/morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'https://github.com/nordtheme/vim'
+Plug 'ollykel/v-vim'
 call plug#end()
 
 syntax on
 
+let g:c_syntax_for_h = 1
+let g:c_no_curly_error = 1
+
 let g:airline_powerline_fonts = 1
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
 
 let g:airline#extensions#tabline#enabled = 1
 
@@ -28,9 +31,9 @@ set noshowmode
 set termguicolors
 
 let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 1
+let g:tokyonight_enable_italic = 0
 
-colorscheme gruvbox
+colorscheme nord
 
 set background=dark
 
@@ -45,7 +48,7 @@ set noerrorbells
 
 nnoremap x "_x
 
-nnoremap <F9> :w <CR> :!clear && g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wno-unused-const-variable -O2 -DLOCAL -o %< % && time ./%< <CR>
+nnoremap <F9> :w <CR> :!clear; g++ -g -fsanitize=address -std=c++20 -Wall -Wextra -Wno-unused-const-variable -DLOCAL -o %< % && time ./%< <CR>
 
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -60,4 +63,4 @@ function! Toggle_transparent()
         let t:is_transparent = 0
     endif
 endfunction
-call Toggle_transparent()
+"call Toggle_transparent()
