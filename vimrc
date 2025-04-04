@@ -2,12 +2,9 @@ set nocompatible
 
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
-Plug 'https://github.com/morhetz/gruvbox'
-Plug 'ghifarit53/tokyonight-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/nordtheme/vim'
-Plug 'ollykel/v-vim'
 call plug#end()
 
 syntax on
@@ -26,12 +23,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 set noshowmode
 
-"let g:airline_theme = "tokyonight"
-
 set termguicolors
-
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 0
 
 colorscheme nord
 
@@ -43,24 +35,27 @@ set shiftwidth=3
 set tabstop=3
 set expandtab
 set mouse=a
+set ignorecase
 
 set noerrorbells
 
 nnoremap x "_x
 
-nnoremap <F9> :w <CR> :!clear; g++ -g -fsanitize=address -std=c++20 -Wall -Wextra -Wno-unused-const-variable -DLOCAL -o %< % && time ./%< <CR>
+nnoremap <F9> :w <CR> :!clear; g++ -g -ggdb -O0 -fsanitize=address -std=c++20 -Wall -Wextra -Wno-unused-const-variable -DLOCAL -o %< % && time ./%< <CR>
 
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+nnoremap <C-l> :noh <CR>
 
-let t:is_transparent = 0
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_transparent = 0
-    endif
-endfunction
+"LET &T_si = "\E[6 Q"
+"LET &T_ei = "\E[2 Q"
+
+"let t:is_transparent = 0
+"function! Toggle_transparent()
+"    if t:is_transparent == 0
+"        hi Normal guibg=NONE ctermbg=NONE
+"        let t:is_transparent = 1
+"    else
+"        set background=dark
+"        let t:is_transparent = 0
+"    endif
+"endfunction
 "call Toggle_transparent()
