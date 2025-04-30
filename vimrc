@@ -45,8 +45,8 @@ nnoremap <F9> :w <CR> :!clear; g++ -g -ggdb -O0 -fsanitize=address -std=c++20 -W
 
 nnoremap <C-l> :noh <CR>
 
-"LET &T_si = "\E[6 Q"
-"LET &T_ei = "\E[2 Q"
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 "let t:is_transparent = 0
 "function! Toggle_transparent()
