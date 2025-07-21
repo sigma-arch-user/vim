@@ -38,7 +38,7 @@ set expandtab
 set mouse=a
 set ignorecase
 set scrolloff=5
-set iskeyword-=_
+"set iskeyword-=_
 
 set noerrorbells
 
