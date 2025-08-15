@@ -36,7 +36,7 @@ set shiftwidth=3
 set tabstop=3
 set expandtab
 set mouse=a
-set ignorecase
+set smartcase
 set scrolloff=5
 "set iskeyword-=_
 
