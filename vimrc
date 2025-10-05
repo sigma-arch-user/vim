@@ -38,7 +38,8 @@ set expandtab
 set mouse=a
 set smartcase
 set scrolloff=5
-"set iskeyword-=_
+set incsearch
+set hlsearch
 
 set noerrorbells
 
