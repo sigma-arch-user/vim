@@ -47,7 +47,9 @@ nnoremap x "_x
 
 nnoremap <Leader>w :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-nnoremap <F9> :w <CR> :!clear; g++ -g -ggdb -O0 -fsanitize=address -std=c++17 -Wall -Wextra -Wno-unused-const-variable -DLOCAL -o %< % && time ./%< <CR>
+nnoremap <F9> :w <CR> :!clear; g++ -g -O0 -fsanitize=address,undefined,signed-integer-overflow -fno-omit-frame-pointer -std=c++17 -Wall -Wextra -Wno-unused-const-variable -DLOCAL -o %< % && time ./%< <CR>
+
+nnoremap <F8> :w <CR> :!clear; g++ -g -O0 -fsanitize=undefined,signed-integer-overflow -fno-omit-frame-pointer -std=c++17 -Wall -Wextra -Wno-unused-const-variable -DLOCAL -o %< % && gdb -ex=r ./%< <CR> <CR>
 
 nnoremap <C-l> :noh <CR>
 
@@ -64,4 +66,4 @@ function! Toggle_transparent()
         let t:is_transparent = 0
     endif
 endfunction
-call Toggle_transparent()
+"call Toggle_transparent()
